@@ -79,7 +79,16 @@ public class IntegerSet {
         set = tempSet.set;
     }
 
+    // Returns true if the set is empty, false otherwise
+    public boolean isEmpty() {
+        return set.isEmpty();
+    }
 
+    // Return String representation of your set.
+    @Override
+    public String toString() {
+        return set.toString();
+    }
     
     public static class IntegerSetException extends RuntimeException {
         public IntegerSetException(String message) {
