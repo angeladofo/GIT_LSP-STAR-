@@ -70,28 +70,50 @@ public class IntegerSet {
             set.add(item);
         }
     }
-
-    // Removes an item from the set or does nothing if not there
+    /**
+    * Removes an item from the set or does nothing if not there
+    *
+    * @param item being removed
+    *
+    */
     public void remove(int item) {
         set.remove(Integer.valueOf(item));
     }
     
-    // Set union
+    /**
+     * set union
+     * @param intSetb
+     */
+  
     public void union(IntegerSet intSetb) {
         set.addAll(intSetb.set);
     }
 
-    // Set intersection, all elements in s1 and s2
+    
+    /**
+     * Set intersection, all elements in s1 and s2
+     * 
+     * @param intSetb
+     */
     public void intersect(IntegerSet intSetb) {
         set.retainAll(intSetb.set);
     }
     
-    // Set difference, i.e., s1 - s2
+    /**
+     * set difference operation with another set (s1 - s2).
+     *
+     * @param intSetb The IntegerSet to subtract from the current set.
+     */
     public void diff(IntegerSet intSetb) {
         set.removeAll(intSetb.set);
     }
 
-    // Set complement, all elements not in s1
+    /**
+     * Calculates the complement of the current set with respect to another set.
+     *
+     * @param intSetb complement calculation.
+     */
+
     public void complement(IntegerSet intSetb) {
         IntegerSet tempSet = new IntegerSet(new ArrayList<>(intSetb.set));
         tempSet.diff(this);
@@ -107,6 +129,17 @@ public class IntegerSet {
     @Override
     public String toString() {
         return set.toString();
+    }
+    
+    /**
+     * Checks if the set contains a specific value.
+     *
+     * @param value 
+     * @return true if the set contains the value, false otherwise.
+     */
+
+    public boolean contains(int value) {
+        return set.contains(value);
     }
     
     public static class IntegerSetException extends RuntimeException {
