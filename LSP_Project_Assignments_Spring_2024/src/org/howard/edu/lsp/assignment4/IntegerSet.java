@@ -13,17 +13,21 @@ public class IntegerSet {
 	 /**
      * Default Constructor for an empty IntegerSet.
      */
-	
 
 	public IntegerSet() {
 
 	}
-	//Constructor
+	/**
+	 * 
+     *
+     * @param set The set of integers to initialize.
+     */
 	public IntegerSet(ArrayList<Integer> set) {
 		this.set = set;
 	}
-	
-	// Clears the internal representation of the set
+	/**
+	* Clears the internal representation of the set
+	*/
 	public void clear() {
 		set.clear();
 	};
@@ -33,23 +37,34 @@ public class IntegerSet {
         return set.size();
     }
 
-    // Returns the largest item in the set; Throws an IntegerSetException if the set is empty
+    /** Returns the largest item in the set; Throws an IntegerSetException if the set is empty
+    *
+    *
+    * @return the length of the set
+    */
     public int largest() {
         if (set.isEmpty()) {
             throw new IntegerSetException("Set is empty");
         }
         return set.stream().max(Integer::compare).orElseThrow();
     }
-
-    // Returns the smallest item in the set; Throws an IntegerSetException if the set is empty
+    /**
+    *Returns the smallest item in the set; Throws an IntegerSetException if the set is empty
+    *
+    * @return the length of the set
+    */
     public int smallest() {
         if (set.isEmpty()) {
             throw new IntegerSetException("Set is empty");
         }
         return set.stream().min(Integer::compare).orElseThrow();
     }
-    
-    // Adds an item to the set or does nothing if already there
+    /**
+    * Adds an item to the set or does nothing if already there
+    *
+    * @param
+    * @return
+    */
     public void add(int item) {
         if (!set.contains(item)) {
             set.add(item);
