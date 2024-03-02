@@ -56,6 +56,29 @@ public class IntegerSet {
     public void remove(int item) {
         set.remove(Integer.valueOf(item));
     }
+    
+    // Set union
+    public void union(IntegerSet intSetb) {
+        set.addAll(intSetb.set);
+    }
+
+    // Set intersection, all elements in s1 and s2
+    public void intersect(IntegerSet intSetb) {
+        set.retainAll(intSetb.set);
+    }
+    
+    // Set difference, i.e., s1 - s2
+    public void diff(IntegerSet intSetb) {
+        set.removeAll(intSetb.set);
+    }
+
+    // Set complement, all elements not in s1
+    public void complement(IntegerSet intSetb) {
+        IntegerSet tempSet = new IntegerSet(new ArrayList<>(intSetb.set));
+        tempSet.diff(this);
+        set = tempSet.set;
+    }
+
 
     
     public static class IntegerSetException extends RuntimeException {
