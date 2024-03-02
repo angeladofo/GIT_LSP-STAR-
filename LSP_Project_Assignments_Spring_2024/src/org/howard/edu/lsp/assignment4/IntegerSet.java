@@ -10,7 +10,11 @@ import java.util.List;
 public class IntegerSet {
 	private List<Integer> set = new ArrayList<Integer>();
 	
-	//Constructor
+	 /**
+     * Default Constructor for an empty IntegerSet.
+     */
+	
+
 	public IntegerSet() {
 
 	}
