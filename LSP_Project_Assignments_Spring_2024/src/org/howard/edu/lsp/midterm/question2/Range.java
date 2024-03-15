@@ -37,10 +37,17 @@ public class IntegerRange implements Range {
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
     }
+    @Override
+    public boolean contains(int value) {
+    	return value >= lowerBound && value <= upperBound;
+    	}
     
-    public boolean contains(int value) {}
-    public boolean contains(int value) {}
-    public int size() {}
+    public boolean contains(int value) {
+    	 return this.contains(other.lowerBound) || this.contains(other.upperBound) ||other.contains(this.lowerBound) || other.contains(this.upperBound);
+    }
+    public int size() {
+    	return Math.abs(upperBound - lowerBound) + 1;
+    }
     public boolean equals(Object obj) {}
     
 }
