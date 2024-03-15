@@ -38,6 +38,10 @@ public class IntegerRange implements Range {
         this.upperBound = upperBound;
     }
     
+    public boolean contains(int value) {}
+    public boolean contains(int value) {}
+    public int size() {}
+    public boolean equals(Object obj) {}
     
 }
 
