@@ -42,14 +42,24 @@ public class IntegerRange implements Range {
     	return value >= lowerBound && value <= upperBound;
     	}
     
-    public boolean contains(int value) {
-    	 return this.contains(other.lowerBound) || this.contains(other.upperBound) ||other.contains(this.lowerBound) || other.contains(this.upperBound);
+    public boolean overlaps(Range other) {
+        if (other instanceof IntegerRange) {
+            IntegerRange otherRange = (IntegerRange) other;
+            return this.contains(otherRange.lowerBound) || this.contains(otherRange.upperBound) ||
+                   otherRange.contains(this.lowerBound) || otherRange.contains(this.upperBound);
+        }
+        return false;
     }
+    
     public int size() {
     	return Math.abs(upperBound - lowerBound) + 1;
     }
-    public boolean equals(Object obj) {}
+    public boolean equals(Object obj) {
     
+    	if (this == obj) return true;
+    	if (!(obj instanceof IntegerRange)) return false;
+    	IntegerRange other = (IntegerRange) obj;
+    	return this.lowerBound == other.lowerBound && this.upperBound == other.upperBound;
+		}
+
 }
-
-
