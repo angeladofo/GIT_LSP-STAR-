@@ -72,8 +72,34 @@ class IntegerSetTest {
         } catch (IntegerSetException e) {
             // Expected behavior
         }
-    
+    }
 
+    @Test
+    public void testSmallestWithNonEmptySet() {
+        IntegerSet set = new IntegerSet();
+
+        set.add(5);
+        set.add(10);
+        set.add(3);
+
+        try {
+            assertEquals(3, set.smallest());
+        } catch (IntegerSetException e) {
+            fail("Should not throw an exception for non-empty set");
+        }
+    }
+
+    @Test
+    public void testSmallestWithEmptySet() {
+        IntegerSet set = new IntegerSet();
+
+        try {
+            set.smallest();
+            fail("Should throw an exception for empty set");
+        } catch (IntegerSetException e) {
+            // Expected behavior
+        }
+    }
 }
 
 
