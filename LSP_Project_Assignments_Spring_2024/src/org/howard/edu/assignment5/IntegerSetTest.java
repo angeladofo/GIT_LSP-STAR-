@@ -111,6 +111,19 @@ class IntegerSetTest {
         assertTrue(set.contains(5));
         assertTrue(set.contains(10));
     }
+
+    @Test
+    public void testAddExistingItem() {
+        IntegerSet set = new IntegerSet();
+
+        set.add(5);
+        set.add(5); // Adding the same item again
+
+        assertEquals(1, set.length()); // Length should remain the same
+        assertTrue(set.contains(5)); // The item should still be in the set
+    }
+
+
 }
 
 
