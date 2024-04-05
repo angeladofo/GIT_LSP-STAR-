@@ -260,6 +260,32 @@ class IntegerSetTest {
 
         assertEquals("[1, 2, 3]", set.toString()); // Non-empty set should be represented as [1, 2, 3]
     }
+    
+    @Test
+    public void testComplement() {
+        IntegerSet setA = new IntegerSet();
+        IntegerSet setB = new IntegerSet();
+
+        // Adding elements to set A
+        setA.add(1);
+        setA.add(2);
+        setA.add(3);
+
+        // Adding elements to set B
+        setB.add(2);
+        setB.add(3);
+        setB.add(4);
+
+        // Performing set complement
+        setA.complement(setB);
+
+        // Verifying the result
+        assertEquals(1, setA.length()); 
+        assertTrue(setA.contains(1)); 
+        assertFalse(setA.contains(2)); 
+        assertFalse(setA.contains(3));
+        assertTrue(setA.contains(4));
+    }
 
 }
 
