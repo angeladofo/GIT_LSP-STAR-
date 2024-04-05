@@ -199,6 +199,32 @@ class IntegerSetTest {
         assertFalse(setA.contains(1)); // 1 should not be in the intersection
         assertFalse(setA.contains(4)); // 4 should not be in the intersection
     }
+    
+    @Test
+    public void testDiff() {
+        IntegerSet setA = new IntegerSet();
+        IntegerSet setB = new IntegerSet();
+
+        // Adding elements to set A
+        setA.add(1);
+        setA.add(2);
+        setA.add(3);
+
+        // Adding elements to set B
+        setB.add(2);
+        setB.add(3);
+        setB.add(4);
+
+        // Performing set difference
+        setA.diff(setB);
+
+        // Verifying the result
+        assertEquals(1, setA.length()); // The difference should contain one element (1)
+        assertTrue(setA.contains(1)); // 1 should be in the difference
+        assertFalse(setA.contains(2)); // 2 should not be in the difference
+        assertFalse(setA.contains(3)); // 3 should not be in the difference
+        assertFalse(setA.contains(4)); // 4 should not be in the difference
+    }
 
 
 
