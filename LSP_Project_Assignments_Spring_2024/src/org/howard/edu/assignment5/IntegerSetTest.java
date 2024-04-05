@@ -227,6 +227,21 @@ class IntegerSetTest {
     }
 
 
+    @Test
+    public void testIsEmptyWithEmptySet() {
+        IntegerSet set = new IntegerSet();
+
+        assertTrue(set.isEmpty());
+    }
+
+    @Test
+    public void testIsEmptyWithNonEmptySet() {
+        IntegerSet set = new IntegerSet();
+
+        set.add(1); // Adding an element to make the set non-empty
+
+        assertFalse(set.isEmpty());
+    }
 
 }
 
