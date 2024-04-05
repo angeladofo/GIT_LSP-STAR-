@@ -173,6 +173,32 @@ class IntegerSetTest {
         assertTrue(unionSet.contains(4));
         assertTrue(unionSet.contains(5));
     }
+    
+    @Test
+    public void testIntersect() {
+        IntegerSet setA = new IntegerSet();
+        IntegerSet setB = new IntegerSet();
+
+        // Adding elements to set A
+        setA.add(1);
+        setA.add(2);
+        setA.add(3);
+
+        // Adding elements to set B
+        setB.add(2);
+        setB.add(3);
+        setB.add(4);
+
+        // Performing intersection
+        setA.intersect(setB);
+
+        // Verifying the result
+        assertEquals(2, setA.length()); // The intersection should contain two elements (2, 3)
+        assertTrue(setA.contains(2));
+        assertTrue(setA.contains(3));
+        assertFalse(setA.contains(1)); // 1 should not be in the intersection
+        assertFalse(setA.contains(4)); // 4 should not be in the intersection
+    }
 
 
 
