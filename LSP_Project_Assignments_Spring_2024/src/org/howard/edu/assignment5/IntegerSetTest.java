@@ -242,6 +242,24 @@ class IntegerSetTest {
 
         assertFalse(set.isEmpty());
     }
+    
+    @Test
+    public void testToStringWithEmptySet() {
+        IntegerSet set = new IntegerSet();
+
+        assertEquals("[]", set.toString()); // Empty set should be represented as []
+    }
+
+    @Test
+    public void testToStringWithNonEmptySet() {
+        IntegerSet set = new IntegerSet();
+
+        set.add(1);
+        set.add(2);
+        set.add(3);
+
+        assertEquals("[1, 2, 3]", set.toString()); // Non-empty set should be represented as [1, 2, 3]
+    }
 
 }
 
