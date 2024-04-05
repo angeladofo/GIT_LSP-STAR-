@@ -85,8 +85,11 @@ public class IntegerSet {
      * @param intSetb
      */
   
-    public void union(IntegerSet intSetb) {
-        set.addAll(intSetb.set);
+    public IntegerSet union(IntegerSet otherSet) {
+        IntegerSet result = new IntegerSet();
+        result.set.addAll(this.set);
+        result.set.addAll(otherSet.set);
+        return result;
     }
 
     

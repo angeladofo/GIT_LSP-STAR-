@@ -150,6 +150,30 @@ class IntegerSetTest {
         assertTrue(set.contains(5)); // Both items should still be in the set
         assertTrue(set.contains(10));
     }
+    
+    @Test
+    public void testUnion() {
+        IntegerSet set1 = new IntegerSet();
+        IntegerSet set2 = new IntegerSet();
+
+        set1.add(1);
+        set1.add(2);
+        set1.add(3);
+
+        set2.add(3);
+        set2.add(4);
+        set2.add(5);
+
+        IntegerSet unionSet = set1.union(set2);
+
+        assertEquals(5, unionSet.length()); // The union set should have 5 elements (1, 2, 3, 4, 5)
+        assertTrue(unionSet.contains(1));
+        assertTrue(unionSet.contains(2));
+        assertTrue(unionSet.contains(3));
+        assertTrue(unionSet.contains(4));
+        assertTrue(unionSet.contains(5));
+    }
+
 
 
 }
