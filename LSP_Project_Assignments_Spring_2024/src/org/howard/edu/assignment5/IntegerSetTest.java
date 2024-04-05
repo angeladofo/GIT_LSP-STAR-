@@ -122,6 +122,20 @@ class IntegerSetTest {
         assertEquals(1, set.length()); // Length should remain the same
         assertTrue(set.contains(5)); // The item should still be in the set
     }
+    
+    @Test
+    public void testRemoveExistingItem() {
+        IntegerSet set = new IntegerSet();
+
+        set.add(5);
+        set.add(10);
+
+        set.remove(5);
+
+        assertEquals(1, set.length()); // Only one item should remain in the set
+        assertFalse(set.contains(5)); // The removed item should not be in the set anymore
+        assertTrue(set.contains(10)); // The other item should still be in the set
+    }
 
 
 }
