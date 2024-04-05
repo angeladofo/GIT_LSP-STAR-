@@ -100,6 +100,17 @@ class IntegerSetTest {
             // Expected behavior
         }
     }
+    @Test
+    public void testAddNewItem() {
+        IntegerSet set = new IntegerSet();
+
+        set.add(5);
+        set.add(10);
+
+        assertEquals(2, set.length());
+        assertTrue(set.contains(5));
+        assertTrue(set.contains(10));
+    }
 }
 
 
