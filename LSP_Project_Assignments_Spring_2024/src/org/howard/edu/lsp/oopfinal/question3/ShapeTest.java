@@ -14,14 +14,14 @@ public class ShapeTest {
 	    }
 	 
 	 @Test
-	    public void testCreateCircle() {
+	    public void testICircle() {
 	        Shape circle = factShape.createShape("Circle");
 	        assertNotNull(circle); //  Circle instance is created
 	        assertTrue(circle instanceof Circle); // Check the instance type is Circle
 	 }
 	 
 	 @Test
-	    public void testCreateRectangle() {
+	    public void testIRectangle() {
 	        Shape rectangle = factShape.createShape("Rectangle");
 	        assertNotNull(rectangle); // Rectangle instance is created
 	        assertTrue(rectangle instanceof Rectangle); // Check the instance type is Rectangle
